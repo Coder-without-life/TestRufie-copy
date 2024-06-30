@@ -10,6 +10,12 @@ from PyQt5.QtWidgets import (
 from instr import *
 from final_win import *
 
+class Expirement():
+    def __init__(self, txt_age, text_test1, text_test2, text_test3):
+        self.txt_age = txt_age
+        self.t1 = text_test1
+        self.t2 = text_test2
+        self.t3 = text_test3
 
 class TestWin(QWidget):
     def __init__(self):
@@ -140,11 +146,11 @@ class TestWin(QWidget):
   
     def next_click(self):
         self.hide()
-        self.fw = FinalWin()
+        self.exp = Expirement(int(self.line_age.text()), self.line_test1.text(), self.line_test2.text(), self.line_test3.text())
+        self.fw = FinalWin(self.exp)
 
 
     def set_appear(self):
         self.setWindowTitle(txt_title)
         self.resize(win_width, win_height)
         self.move(win_x, win_y)
-
